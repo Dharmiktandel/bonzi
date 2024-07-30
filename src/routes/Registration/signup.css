@@ -1,0 +1,48 @@
+  *{
+    box-sizing: border-box;
+    
+}
+body{
+     background-color: lightblue 
+}
+.regmain {
+    padding: 16px;
+    height: 800px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 25px;
+    
+    
+    
+  }
+  
+  .inputtext {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .labell {
+    color: red;
+    font-weight: 500;
+    margin-left: 5px;
+    
+  }
+  .regbtn{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: large;
+    font-family:"-moz-initial";
+  }  
+  .paragraph{
+    color: red;
+    margin-top: -15px;
+    
+  }

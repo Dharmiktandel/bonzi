@@ -1,0 +1,243 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+import React, { useState } from "react";
+import './signup.css'
+//import Signin from "../login/signin";
+
+
+
+const Signup = () => {
+    const[firstname,setfirstname] = useState("")
+    const[lastname,setlastname] = useState("")
+    const[phone,setphone] = useState("")
+    const[email,setemail] = useState("")
+    const[password,setpassword] = useState("")
+
+    const[errors,seterrors]=useState("")
+
+    function handlevalidation(e){
+        e.preventDefault();
+        seterrors(validation());
+    }
+
+
+
+    function validation(){
+        const errors = {}
+
+        const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,6}$/;
+        const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+
+        if(firstname === ""){
+            errors.firstname = "first name is required";
+        }
+        else if(firstname.match(/[0-9]/)){
+            errors.firstname = "please enter valid first name";
+        }
+        
+        if(lastname === ""){
+            errors.lastname = "last name is required";
+        }
+        else if(lastname.match(/[0-9]/)){
+            errors.lastname = "please enter valid last name";
+        }
+
+        if(phone === ""){
+            errors.phone = "phone number is required";
+        }
+        else if(phone.match(/^[a-zA-Z]*$/) || phone.length>10 || phone.length<10){
+            errors.phone = "please enter valid phone number"
+        }
+
+        if(email === ""){
+           errors.email = "email is required";
+        }
+        else if(!email_pattern.test(email)){
+            errors.email = "Email did not match"
+        }
+
+        if(password === ""){
+            errors.password = "password is required"
+        }
+        else if(!password_pattern.test(password)){
+            errors.password = "password did not match"
+        }
+        return errors;
+        
+    }
+
+
+    // function validation(){
+    //     if(!firstname || firstname.match(/[0-9]/)){
+    //         alert("please enter valid first name")
+    //         return false;
+    //     }
+    //      if(!lastname || lastname.match(/[0-9]/)){
+    //         alert("please enter valid last  name")
+    //         return false;
+    //     }
+    //      if(!phone || phone.match(/^[a-zA-Z]*$/) || phone.length>10 || phone.length<10){
+    //        alert("please enter valid phone number")
+    //        return false;
+    //     }
+    //      if(email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i)){
+    //         return true;
+    //     }
+    //     else{
+    //         alert("please enter valid email")
+    //         return false;
+    //     }
+    //     }
+    return(
+        <>
+        <section class="container">
+            <center><header style={{color:"red",fontWeight:700,fontSize:20}}>REGISTRATION</header></center>
+            <form style={{marginTop:20}} onSubmit={handlevalidation}>
+                <div class="input-box">
+                <label>First Name:</label>
+                <input type="text" placeholder="Enter first name"  onChange={(e)=>setfirstname(e.target.value)} />
+                {errors.firstname && <p>{errors.firstname}</p>}
+                 </div>
+
+                <div class="input-box">
+                <label>Last Name:</label>
+                <input type="text" placeholder="Enter last name" onChange={(e)=>setlastname(e.target.value)} />
+                {errors.lastname && <p>{errors.lastname}</p>}
+                </div>
+
+                <div class="input-box">
+                <label>Phone Number:</label>
+                <input type="text" placeholder="Enter phone number" onChange={(e)=>setphone(e.target.value)} />
+                {errors.phone && <p>{errors.phone}</p>}
+                </div>
+
+                <div class="input-box">
+                <label>Email:</label>
+                <input type="text" placeholder="Enter Email address" onChange={(e)=>setemail(e.target.value)} />
+                {errors.email && <p>{errors.email}</p>}
+                </div>
+
+                <div class="input-box">
+                <label>Password:</label>
+                <input type="text" placeholder="Enter password" onChange={(e)=>setpassword(e.target.value)} />
+                {errors.password && <p>{errors.password}</p>}
+                </div>
+
+                <button className="regbtn">sign up</button>
+                <center><span>Already have an account ?</span><a style={{color:"red",textDecoration:"none",fontWeight:500}} href="./signin"> login</a></center>
+
+             </form>
+        </section>
+
+      
+
+
+             {/* <center>
+           <div style={{height:800,width:400,backgroundColor:"white",marginTop:50,borderRadius:12}}>
+            <b> <span style={{display: "inline-block",marginTop:30,color:"red",fontSize:25}}>REGISTRATION</span> </b>
+              span tag me margintop(vertical) nahi chalta to uske liye hum display ko inline block kiya hai.span tag inline element hai isliye horizontal(-)me hi chalta hai  
+           <form onSubmit={handlevalidation} required>
+            <div className="container">
+                <div style={{}}> 
+                <label style={{color:"red",marginRight:300,marginTop:40,display:"inline-block",marginLeft:15,width:100}} for="uname"><b>First Name:</b></label>
+                <input style={{width:350,border:"1px solid #ccc",display:"inline-block",padding:"10px",margin:10,borderRadius:5,}} type="text" placeholder="First name" onChange={(e)=>setfirstname(e.target.value)} ></input>{errors.firstname && <p style={{color:"red",marginRight:210,marginTop:1,width:150,height:20}}>{errors.firstname}</p>}
+                 </div> 
+                 <div style={{height:110}}> 
+                <label style={{color:"red",marginRight:300,display:"inline-block",marginLeft:13,width:100}} for="uname"><b>Last Name:</b></label>
+                <input style={{width:350,border:"1px solid #ccc",display:"inline-block",padding:"10px",margin:10,borderRadius:5,}} type="text" placeholder="Last name" onChange={(e)=>setlastname(e.target.value)} ></input>{errors.lastname && <p style={{color:"red",marginRight:210,marginTop:1}}>{errors.lastname}</p>}
+                 </div> 
+                 <div style={{height:110}}> 
+                <label style={{color:"red",marginRight:300,display:"inline-block",marginLeft:4,width:150}} for="uname"><b>Phone Number:</b></label>
+                <input style={{width:350,border:"1px solid #ccc",display:"inline-block",padding:"10px",margin:10,borderRadius:5,}} type="text" placeholder="Phone number" onChange={(e)=>setphone(e.target.value)} ></input>{errors.phone && <p style={{color:"red",marginRight:178,marginTop:1}}>{errors.phone}</p>}
+                 </div> 
+                 <div style={{height:110}}> 
+                <label style={{color:"red",marginRight:300,display:"inline-block",marginLeft:1,width:150}} for="uname"><b>Email Address:</b></label>
+                <input style={{width:350,border:"1px solid #ccc",display:"inline-block",padding:"10px",margin:10,borderRadius:5,}} type="text" placeholder="Email address" onChange={(e)=>setemail(e.target.value)} ></input>{errors.email && <p style={{color:"red",marginRight:240,marginTop:1}}>{errors.email}</p>}
+                 </div> 
+                 <div style={{height:110}}> 
+                <label style={{color:"red",marginRight:300,display:"inline-block",marginLeft:8,width:100}} for="uname"><b>Password:</b></label>
+                <input style={{width:350,border:"1px solid #ccc",display:"inline-block",padding:"10px",margin:10,borderRadius:5,}} type="text" placeholder="Password" onChange={(e)=>setpassword(e.target.value)} r></input>{errors.password && <p style={{color:"red",marginRight:220,marginTop:1}}>{errors.password}</p>}
+                 </div> 
+
+                 <button style={{marginLeft:250,border:"none",background:"none",color:"red",fontStyle:"unset",margin:5}}>Forgot Password?</button> 
+               <button  style={{backgroundColor:"red",color:"white",width:368,display:"inline-block",padding:10,margin:10,borderRadius:5,border:"none",}}><b style={{fontFamily:"-moz-initial",fontSize:16}}>Sign up</b></button>
+                <button style={{color:"black",width:368,display:"inline-block",padding:10,margin:10,borderRadius:5,border:"none",}}><b style={{fontFamily:"-moz-initial",fontSize:16}}>Sign in via Google</b></button> 
+               <label style={{color:"red",fontFamily:"-moz-initial"}}><b>Already have an account?<a style={{color:"red",textDecoration:"none"}} href="./signin"> login</a></b></label>
+            </div>
+           </form>
+            </div>
+           </center>    */}
+        </> 
+    )
+}
+export default Signup;
+
+css file
+
+  *{
+    box-sizing: border-box;
+}
+.container {
+    padding: 16px;
+    height: 800px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 25px;
+  }
+  body{
+    justify-content: center;
+    display: flex;
+    
+  }
+  input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  label {
+    color: red;
+    font-weight: 500;
+    margin-left: 5px;
+    
+  }
+  .regbtn{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: large;
+    font-family:"-moz-initial";
+  }  
+  p{
+    color: red;
+    margin-top: -15px;
+  }

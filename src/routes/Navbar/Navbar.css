@@ -1,0 +1,122 @@
+ .blogo {
+      /* display: flex;
+    flex-direction: row;  */
+    padding-left: 10%;
+    padding-top: 1%;
+    /* color: orangered; */
+    /* font-size: large;
+    font-weight: 700;  */
+    height: 30px;
+  } 
+  
+  .headerr {
+    background-color: #063970;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px 25px;
+    height: 150px;
+    align-items: center;
+  }
+
+
+  
+  .search {
+    height: 50%;
+    width: 100%;
+    
+  }
+  
+  .search select {
+    width: 20%;
+    border-width: 0px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none; /* Hide outline when focused */
+    height: 50%;
+  }
+  
+  .inpuuut {
+    width: 60%;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none; /* Hide outline when focused */
+    height: 40px;
+  }
+
+  .search button{
+    padding: 10px;  
+    font-size: 16px;
+    color: orangered;
+    font-weight: 700;
+  }
+  .search a{
+    color: white;
+    text-decoration: none;
+    
+    
+    
+  }
+  .search a:hover{
+  color: red; 
+  }
+
+
+
+  .icons{
+    padding: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+  }
+  .roww{
+    padding-left: 90%;
+    width: 100%;
+    padding-top: 1%;
+  }
+
+  /* .categoriess{
+    display: flex;
+    flex-direction: row;
+    border-style: dotted;
+    border-width: 1px;
+    
+    width: 20%;
+    height: 500px;
+    
+  
+    
+
+  } */
+
+  .cat{
+    border-radius: 2%;
+    
+    margin-left: 100px;
+    margin-top: 96px;
+    border-width: 1px;
+    background-color: white;
+     height: 860px; 
+    
+    
+  }
+
+  .dicons{
+    
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .secpage{
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    
+  }
+
+  
+  
+  
