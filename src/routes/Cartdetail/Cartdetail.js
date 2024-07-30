@@ -43,7 +43,7 @@ const CartDetails = () => {
       <div style={{height:"100%",width:"100%"}}>
       <div style={{display:"flex"}}>
         <div style={{width:"70%",height:"100%",backgroundColor: '#fff',margin:40,}}>
-        <h3 style={{fontSize:20,margin:10,padding:10,backgroundColor:"green"}}>Shopping Cart</h3>
+        {/* <h3 style={{fontSize:20,margin:10,padding:10,backgroundColor:"green"}}>Shopping Cart</h3> */}
         <hr style={{}}></hr>
             {
                 cartDesc.map((item,index) => (
